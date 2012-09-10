@@ -13,13 +13,12 @@ class UnitsController < ApplicationController
   end
 
   def new
-      @title = "New unit"
-      @unit = Unit.new
-    end
+    @title = "New unit"
+    @unit = current_user.units.new
   end
 
   def create
-    @unit = Unit.new(params[:unit])
+    @unit = current_user.unitis.new(params[:unit])
     if @unit.save
       redirect_to @unit, notice: "Successfully created unit."
     else

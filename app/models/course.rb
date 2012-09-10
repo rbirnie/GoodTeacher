@@ -1,7 +1,10 @@
 class Course < ActiveRecord::Base
   belongs_to :user
 
-  has_many :units, :dependent => :destroy
+  has_many :unit_links, :foreign_key => "course_id",
+                        :dependent => :destroy
+  has_many :units, :through => :unit_links 
+
 
   attr_accessible :description, :name, :user_id
 

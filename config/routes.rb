@@ -9,10 +9,8 @@ GoodTeacher::Application.routes.draw do
   resources :lessions
   resources :assessments
   resources :vocab_lists
-  
-  resources :courses do
-    resources :units
-  end
+  resources :units  
+  resources :courses
   
   match '/about', :to => 'static_pages#about'
   match '/privacypolicy', :to => 'static_pages#privacypolicy'

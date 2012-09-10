@@ -1,11 +1,12 @@
 class Unit < ActiveRecord::Base
-  belongs_to :course
+  has_many :unit_links, :foreign_key => "unit_id",
+                        :dependent => :destroy
+  has_many :courses, :through => :unit_links
 
   attr_accessible :description, :name
 
   validates :name, :presence => true, 
-                   :length => { :minimum => 2,
-                   :too_short => "Must be between 2 and 150 characters!",
+                   :length => { :minimum => 2 },
                    :length => { :maximum => 150 },
                    :on => :update
 

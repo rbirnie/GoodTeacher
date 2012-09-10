@@ -12,5 +12,14 @@
           <%= link_to "Create Course", new_course_path %>
         </fieldset>
     </div>
+    <div class="boxes">
+      <fieldset>
+        <legend><%= link_to "Your Units", units_path %></legend>
+          <% unless @units.blank? %>
+            <%= render 'shared/units' %>
+          <% end %>
+          <%= link_to "Create Unit", new_unit_path %>
+        </fieldset>
+    </div>
   </div>
 </div>
