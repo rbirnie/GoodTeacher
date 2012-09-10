@@ -1,0 +1,10 @@
+<h1><%= @title %></h1>
+
+<table>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= link_to user.name, user %></td>
+    <td>I work at <%= user.school %></td>
+  </tr>
+  <% end %>
+</table>

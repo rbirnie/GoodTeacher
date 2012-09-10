@@ -1,0 +1,29 @@
+<div class="row boxes" id="profile">
+  <div class="span8">
+    <h1><%= @user.name %></h1>
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><strong>School:</strong></td>
+        <td><%= @user.school %></td>
+      </tr>
+      <tr>
+        <td><strong>Location:</strong></td>
+        <td><%= @user.location %></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="span10">
+    <div class="boxes">
+      <fieldset>
+        <legend>About Me</legend>
+        <div class="span8"><p><%= @user.description %></p></div>
+      </fieldset>
+    </div>
+  </div>
+</div>

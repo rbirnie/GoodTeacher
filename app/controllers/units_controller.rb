@@ -1,27 +1,48 @@
 class UnitsController < ApplicationController
+  respond_to :html
 
-	def index
-		
-	end
+  def index
+    @title = "My units"
+    @units = current_user.units.all
+  end
+  
 
-	def new
-		
-	end
+  def show
+    @unit = Unit.find(params[:id])
+    @title = @unit.name
+  end
 
-	def create
-	
-	end
+  def new
+      @title = "New unit"
+      @unit = Unit.new
+    end
+  end
 
-	def show
-		
-	end
+  def create
+    @unit = Unit.new(params[:unit])
+    if @unit.save
+      redirect_to @unit, notice: "Successfully created unit."
+    else
+      render :new
+    end
+  end
 
-	def update
-		
-	end
+  def edit
+    @unit = Unit.find(params[:id])
+  end
 
-	def destroy
-	
-	end
+  def update
+    @unit = Unit.find(params[:id])
+    if @unit.update_attributes(params[:unit])
+      redirect_to @unit, notice: "Successfully updated unit."
+    else
+      render :edit
+    end
+  end
 
+  def destroy
+    @unit = current_user.unit.find(params[:id])
+    @unit.destroy
+    redirect_to units_url, notice: "Successfully destroyed unit"
+  end
 end

@@ -1,0 +1,16 @@
+<h1>Welcome Back <%= current_user.name %>! </h1>
+
+
+<div class="row">
+  <div class="span10">
+    <div class="boxes">
+      <fieldset>
+        <legend><%= link_to "Your Courses", courses_path %></legend>
+          <% unless @courses.blank? %>
+            <%= render 'shared/courses' %>
+          <% end %>
+          <%= link_to "Create Course", new_course_path %>
+        </fieldset>
+    </div>
+  </div>
+</div>
