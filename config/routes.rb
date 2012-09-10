@@ -1,4 +1,19 @@
 GoodTeacher::Application.routes.draw do
+
+  resources :books
+  resources :lessions
+  resources :assessments
+  resources :vocab_lists
+  
+  resources :teachers do
+    resources :courses do
+      resources :units
+    end
+  end
+  
+  match '/about', :to => 'static_pages#about'
+  match '/privacypolicy', :to => 'static_pages#privacypolicy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +63,7 @@ GoodTeacher::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'pages#home'
 
   # See how all your routes lay out with "rake routes"
 

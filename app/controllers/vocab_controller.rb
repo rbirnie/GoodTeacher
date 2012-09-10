@@ -1,0 +1,2 @@
+class VocabController < ApplicationController
+end
