@@ -4,5 +4,23 @@
       <legend><%= @course.name %></legend>
       <p><%= @course.description %></p>
     </div>
+    <div class="boxes">
+      <legend>Comments</legend>
+      <fieldset>
+        <%= render "comments/comments" %>
+        <%= render "comments/form" %>
+      </fieldset>
+    </div>
+    <div class="span4">
+      <% unless @course.units.blank? %>
+        <% @course.units.each do |unit| %>
+          <ul>
+            <br><b><%= unit.name %></b></br>
+            <br><%= unit.description %></br>
+          </ul>
+        <% end %>
+      <% end %>
+      <%# render 'unit_form' %>
+    </div>
   </div>
 </div>

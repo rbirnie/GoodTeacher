@@ -8,7 +8,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @units = @user.units
     @title = "#{@user.name} - #{@user.school}"
+    @commentable = @user
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def edit

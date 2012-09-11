@@ -10,6 +10,9 @@ class UnitsController < ApplicationController
   def show
     @unit = Unit.find(params[:id])
     @title = @unit.name
+    @commentable = @unit
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new

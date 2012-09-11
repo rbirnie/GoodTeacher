@@ -1,28 +1,38 @@
 <div class="row boxes" id="profile">
   <div class="span8">
     <h1><%= @user.name %></h1>
-    <table>
-      <tr>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr>
-        <td><strong>School:</strong></td>
-        <td><%= @user.school %></td>
-      </tr>
-      <tr>
-        <td><strong>Location:</strong></td>
-        <td><%= @user.location %></td>
+    <strong>School:</strong> <%= @user.school %><br />
+    <strong>Location:</strong> <%= @user.location %>
       </tr>
     </table>
   </div>
 </div>
 <div class="row">
-  <div class="span10">
+  <div class="span6">
     <div class="boxes">
       <fieldset>
         <legend>About Me</legend>
         <div class="span8"><p><%= @user.description %></p></div>
+      </fieldset>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="span6">
+    <div class="boxes">
+      <legend>Comments</legend>
+      <fieldset>
+        <%= render "comments/comments" %>
+        <%= render "comments/form" %>
+      </fieldset>
+    </div>
+  </div>
+
+  <div class="span10">
+    <div class="boxes">
+      <fieldset>
+        <legend>My Units</legend>
+        <div class="span8"><p><%= render 'shared/units' %></p></div>
       </fieldset>
     </div>
   </div>

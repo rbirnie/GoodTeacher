@@ -1,7 +1,7 @@
-<%= semantic_form_for @course do |f| %>
-  <% if @course.errors.any? %>
+<%= semantic_form_for @course.units do |f| %>
+  <% if @course.units.errors.any? %>
     <div class="alert alert-error">
-      <% @course.errors.full_messages.each do |msg| %>
+      <% @course.units.errors.full_messages.each do |msg| %>
         <p><%= msg %></p>
       <% end %>
     </div>

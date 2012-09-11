@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120910212828) do
+ActiveRecord::Schema.define(:version => 20120911045249) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "commenter"
+    t.string   "subject"
+    t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "name"

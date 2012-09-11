@@ -4,13 +4,19 @@ GoodTeacher::Application.routes.draw do
     get 'logout' => 'devise/sessions#destroy'
   end
 
-  resources :users
+  resources :users do
+    resources :comments
+  end
   resources :books
-  resources :lessions
+  resources :lessons
   resources :assessments
   resources :vocab_lists
-  resources :units  
-  resources :courses
+  resources :units do
+    resources :comments
+  end
+  resources :courses do
+    resources :comments
+  end
   
   match '/about', :to => 'static_pages#about'
   match '/privacypolicy', :to => 'static_pages#privacypolicy'

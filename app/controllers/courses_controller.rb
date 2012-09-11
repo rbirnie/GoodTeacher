@@ -10,6 +10,9 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @title = @course.name
+    @commentable = @course
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   def new
