@@ -3,6 +3,7 @@
     <div class="boxes">
       <legend><%= @course.name %></legend>
       <p><%= @course.description %></p>
+      <p><%= link_to "Edit", edit_course_path(@course) %></p>
     </div>
     <div class="boxes">
       <legend>Comments</legend>

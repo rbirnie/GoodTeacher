@@ -1,12 +1,6 @@
-<div class="boxes">
-<div id="comments">
 <% @comments.each do |comment| %>
-  <div class="boxes">
     <table>
-      <tr><td><strong><%= comment.commenter.name %></strong></td></tr>
+      <tr><td><strong><%= comment.commenter.name %></strong> - <%= comment.subject %></td></tr>
       <tr><td><%= comment.body %></td></tr>
     </table><br />
-  </div>
 <% end %>
-</div>
-</div>

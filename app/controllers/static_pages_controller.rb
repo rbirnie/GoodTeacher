@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     @title = "Home"
     if current_user
       @courses = current_user.courses
+      @units = current_user.units
     end
   end
 

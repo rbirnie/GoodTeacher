@@ -6,7 +6,7 @@
     <div class="boxes">
       <fieldset>
         <legend><%= link_to "Your Courses", courses_path %></legend>
-          <% unless @courses.blank? %>
+          <% unless current_user.courses.blank? %>
             <%= render 'shared/courses' %>
           <% end %>
           <%= link_to "Create Course", new_course_path %>
@@ -15,7 +15,7 @@
     <div class="boxes">
       <fieldset>
         <legend><%= link_to "Unit Gallery", units_path %></legend>
-          <% unless @units.blank? %>
+          <% unless current_user.units.blank? %>
             <%= render 'shared/units' %>
           <% end %>
           <%= link_to "Create Unit", new_unit_path %>

@@ -29,7 +29,7 @@ private
 
   # alternative option:
   def load_commentable
-    klass = [User, Unit, Course].detect { |c| params["#{c.name.underscore}_id"] }
+    klass = [User, Unit, Course, Lesson].detect { |c| params["#{c.name.underscore}_id"] }
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
 

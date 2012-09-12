@@ -1,5 +1,4 @@
-<div class="boxes">
-  <%= semantic_form_for [@commentable, @comment] do |f| %>
+<%= semantic_form_for [@commentable, @comment] do |f| %>
   <% if @comment.errors.any? %>
     <div class="alert alert-error">
       <h2>Please correct the following errors.</h2>
@@ -14,13 +13,12 @@
   <div class="control-group">
     <%= f.label :subject %>
     <div class="controls"><%= f.text_field :subject %></div>
-  <div class="control-group">
+  </div>
   <div class="control-group">
     <%= f.label :body %>
-    <div class="controls"><%= f.text_area :body, rows: 8 %>
-  </div></div>
+    <div class="controls"><%= f.text_area :body, rows: 8 %></div>
+  </div>
   <div class="form-actions">
     <%= f.submit "Submit", :class => "btn-success" %>
   </div>
 <% end %>
-</div>

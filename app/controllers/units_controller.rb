@@ -13,6 +13,9 @@ class UnitsController < ApplicationController
     @commentable = @unit
     @comments = @commentable.comments
     @comment = Comment.new
+    #@lessons = @unit.lessons
+    @lesson = Lesson.new
+    @lessons = @unit.lessons
   end
 
   def new

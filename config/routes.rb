@@ -7,12 +7,21 @@ GoodTeacher::Application.routes.draw do
   resources :users do
     resources :comments
   end
-  resources :books
-  resources :lessons
-  resources :assessments
-  resources :vocab_lists
-  resources :units do
+  resources :books do
     resources :comments
+  end
+  resources :lessons do
+    resources :comments
+  end
+  resources :assessments do
+    resources :comments
+  end
+  resources :vocab_lists do
+    resources :comments
+  end
+  resources :units, :shallow => true do
+    resources :comments
+    resources :lessons
   end
   resources :courses do
     resources :comments

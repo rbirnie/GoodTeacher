@@ -8,32 +8,21 @@
   </div>
 </div>
 <div class="row">
-  <div class="span6">
-    <div class="boxes">
-      <fieldset>
-        <legend>About Me</legend>
-        <div class="span8"><p><%= @user.description %></p></div>
-      </fieldset>
-    </div>
-  </div>
+  <fieldset>
+    <legend>About Me</legend>
+    <p><%= @user.description %></p>
+  </fieldset>
 </div>
 <div class="row">
-  <div class="span6">
-    <div class="boxes">
-      <legend>Comments</legend>
-      <fieldset>
-        <%= render "comments/comments" %>
-        <%= render "comments/form" %>
-      </fieldset>
-    </div>
-  </div>
-
-  <div class="span10">
-    <div class="boxes">
-      <fieldset>
-        <legend>My Units</legend>
-        <div class="span8"><p><%= render 'shared/units' %></p></div>
-      </fieldset>
-    </div>
-  </div>
+  <fieldset>
+    <legend>Comments</legend>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
+  </fieldset>
+</div>
+<div class="row">
+  <fieldset>
+    <legend>My Units</legend>
+    <%= render 'shared/units' %>
+  </fieldset>
 </div>
