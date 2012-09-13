@@ -8,7 +8,7 @@ class Assessment < ActiveRecord::Base
   has_many :units, :through => :assessments_units
   has_many :comments, :as => :commentable
 
-  friendly_id :username, use: :slugged
+  friendly_id :name, use: :slugged
 
   def should_generate_new_friendly_id?
     new_record?
