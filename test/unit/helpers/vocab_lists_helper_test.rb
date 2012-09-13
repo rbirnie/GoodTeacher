@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class VocabListsHelperTest < ActionView::TestCase
+class VocabularyListsHelperTest < ActionView::TestCase
 end

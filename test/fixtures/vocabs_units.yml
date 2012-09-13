@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  unit_id: 1
-  vocab_id: 1
-
-two:
-  unit_id: 1
-  vocab_id: 1

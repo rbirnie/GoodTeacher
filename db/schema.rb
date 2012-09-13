@@ -116,7 +116,19 @@ ActiveRecord::Schema.define(:version => 20120913150410) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug"
 
-  create_table "vocab_lists", :force => true do |t|
+  create_table "vocabularies", :force => true do |t|
+    t.string   "name"
+    t.text     "definition"
+    t.string   "word"
+    t.text     "location"
+    t.string   "user_id"
+    t.string   "vocabulary_list_id"
+    t.string   "slug"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "vocabulary_lists", :force => true do |t|
     t.string   "name"
     t.string   "description"
     t.string   "user_id"
@@ -125,23 +137,11 @@ ActiveRecord::Schema.define(:version => 20120913150410) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "vocab_lists_units", :force => true do |t|
+  create_table "vocabulary_lists_units", :force => true do |t|
     t.integer  "unit_id"
-    t.integer  "vocab_list_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  create_table "vocabs", :force => true do |t|
-    t.string   "name"
-    t.text     "definition"
-    t.string   "word"
-    t.text     "location"
-    t.string   "user_id"
-    t.string   "vocab_list_id"
-    t.string   "slug"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.integer  "vocabulary_list_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
 end

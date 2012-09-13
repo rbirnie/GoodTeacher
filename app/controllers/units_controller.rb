@@ -20,8 +20,8 @@ class UnitsController < ApplicationController
     @lessons = @unit.lessons
     @assessment = Assessment.new
     @assessments = @unit.assessments
-    @vocab_list = VocabList.new
-    @vocab_lists = @unit.vocab_lists
+    @vocabulary_list = VocabularyList.new
+    @vocabulary_lists = @unit.vocabulary_lists
   end
 
   def new

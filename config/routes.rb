@@ -17,14 +17,14 @@ GoodTeacher::Application.routes.draw do
       resources :comments
       resources :lessons
       resources :assessments
-      resources :vocab_lists
+      resources :vocabulary_lists
     end
     resources :assessments do
       resources :comments
     end
-  resources :vocab_lists do
-    resources :comments
-  end
+    resources :vocabulary_lists do
+      resources :comments
+    end
   end
 
   resources :books do
