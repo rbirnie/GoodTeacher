@@ -1,0 +1,34 @@
+<%= semantic_form_for [@user, @unit, @assessment] do |f| %>
+  <% if @assessment.errors.any? %>
+    <div class="alert alert-error">
+      <% @assessment.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="control-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :description %><br />
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :which %><br />
+      <%= f.text_area :which %>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :prompt %><br />
+      <%= f.text_area :prompt %>
+    </div>
+  
+    <div class="form-actions">
+      <p><%= f.submit "Save", :class => "btn-success" %></p>
+    </div>
+  </fieldset>
+<% end %>

@@ -12,6 +12,12 @@
         <%# render "lessons/form" %>
         <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
       </fieldset>
+      <fieldset>
+        <h4>Assessments</h4>
+        <%= render "assessments/assessments" %>
+        <%# render "assessments/form" %>
+        <%= link_to "Add an Assesment", new_user_unit_assessment_path(@user, @unit) %>
+      </fieldset>
   </div>
   <div class="span6">
     <legend>Comments</legend>

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
                      :dependent => :destroy
   has_many :lessons, :foreign_key => "user_id",
                      :dependent => :destroy
+  has_many :assessments, :foreign_key => "user_id",
+                     :dependent => :destroy
   has_many :comments, :as => :commentable
   has_many :authored_comments, class_name: "Comment"
 

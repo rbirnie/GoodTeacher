@@ -1,0 +1,12 @@
+<div class="boxes">
+<div id="assessments">
+<% @assessments.each do |assessment| %>
+  <div class="boxes">
+    <table>
+      <tr><td><strong><%= link_to assessment.name, user_assessment_path(@user, assessment) %></strong> - <%= assessment.description %></td></tr>
+      <tr><td><%= assessment.prompt %></td></tr>
+    </table><br />
+  </div>
+<% end %>
+</div>
+</div>

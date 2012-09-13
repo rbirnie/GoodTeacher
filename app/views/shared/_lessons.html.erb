@@ -1,11 +1,12 @@
-<table class="table">
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= link_to lesson.name, lesson %></td>
-        <td><%= distance_of_time_in_words(lesson.created_at, Time.now) %> ago</td>
-        <td><%= lesson.description %></td><td></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="boxes">
+<div id="lessons">
+<% @lessons.each do |lesson| %>
+  <div class="boxes">
+    <table>
+      <tr><td><strong><%= link_to lesson.name, user_lesson_path(@user, lesson) %></strong> - <%= lesson.description %></td></tr>
+      <tr><td><%= lesson.body %></td></tr>
+    </table><br />
+  </div>
+<% end %>
+</div>
+</div>

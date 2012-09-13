@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  unit_id: MyString
+  assessment_id: MyString
+
+two:
+  unit_id: MyString
+  assessment_id: MyString

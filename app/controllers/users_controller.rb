@@ -16,11 +16,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @title = "Edit your Profile"
     @user = User.find(params[:id])
     if current_user.nil? || current_user.id != @user.id
       redirect_to @user
     end
-    @title = "Edit your Profile"
   end
 
   def update
@@ -33,5 +33,4 @@ class UsersController < ApplicationController
       redirect_to @user
     end
   end
-
 end

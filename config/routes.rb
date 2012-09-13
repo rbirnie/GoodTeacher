@@ -6,6 +6,7 @@ GoodTeacher::Application.routes.draw do
 
   resources :users do
     resources :comments
+
     resources :courses do
       resources :comments
     end
@@ -15,12 +16,13 @@ GoodTeacher::Application.routes.draw do
     resources :units do
       resources :comments
       resources :lessons
+      resources :assessments
+    end
+    resources :assessments do
+      resources :comments
     end
   end
   resources :books do
-    resources :comments
-  end
-  resources :assessments do
     resources :comments
   end
   resources :vocab_lists do

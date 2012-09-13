@@ -20,38 +20,56 @@ class CoursesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @title = "New Course"
+    if current_user.nil? || current_user.id != @user.id
+      redirect_to user_courses_path(@user)
+    end
     @course = current_user.courses.new
   end
 
   def create
     @user = User.find(params[:user_id])
-    @course = @user.courses.new(params[:course])
-    if @course.save
-      redirect_to user_course_path(@user, @course), notice: "Successfully created course."
+    if current_user.nil? || current_user.id != @user.id
+      redirect_to user_courses_path(@user)
     else
-      render :new
+    @course = @user.courses.new(params[:course])
+      if @course.save
+        redirect_to user_course_path(@user, @course), notice: "Successfully created course."
+      else
+        render :new
+      end
     end
   end
 
   def edit
     @user = User.find(params[:user_id])
     @course = @user.courses.find(params[:id])
+    if current_user.nil? || current_user.id != @user.id
+      redirect_to user_course_path(@user, @course)
+    end
   end
 
   def update
     @user = User.find(params[:user_id])
     @course = @user.courses.find(params[:id])
-    if @course.update_attributes(params[:course])
-      redirect_to user_course_path(@user, @course), notice: "Successfully updated course."
+    if current_user.nil? || current_user.id != @user.id
+      redirect_to user_course_path(@user, @course)
     else
-      render :edit
+      if @course.update_attributes(params[:course])
+        redirect_to user_course_path(@user, @course), notice: "Successfully updated course."
+      else
+        render :edit
+      end
     end
   end
 
   def destroy
     @user = User.find(params[:user_id])
     @course = @user.courses.find(params[:id])
-    @course.destroy
-    redirect_to user_courses_url(@user), notice: "Successfully destroyed course"
+    if current_user.nil? || current_user.id != @user.id
+      redirect_to user_course_path(@user, @course)
+    else
+      @course.destroy
+      redirect_to user_courses_url(@user), notice: "Successfully destroyed course"
+    end
   end
 end
