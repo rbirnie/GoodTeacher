@@ -27,18 +27,24 @@ ActiveRecord::Schema.define(:version => 20120911190347) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "courses", ["slug"], :name => "index_courses_on_slug"
 
   create_table "lessons", :force => true do |t|
     t.integer  "user_id"
     t.text     "body"
     t.string   "name"
     t.text     "description"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "lessons", ["slug"], :name => "index_lessons_on_slug"
 
   create_table "lessons_units", :force => true do |t|
     t.integer  "unit_id"
@@ -58,9 +64,12 @@ ActiveRecord::Schema.define(:version => 20120911190347) do
     t.string   "name"
     t.text     "description"
     t.integer  "user_id"
+    t.string   "slug"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "units", ["slug"], :name => "index_units_on_slug"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -79,9 +88,12 @@ ActiveRecord::Schema.define(:version => 20120911190347) do
     t.string   "school"
     t.string   "location"
     t.text     "description"
+    t.string   "username"
+    t.string   "slug"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["slug"], :name => "index_users_on_slug"
 
 end

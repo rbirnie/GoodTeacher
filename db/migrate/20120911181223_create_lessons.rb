@@ -5,8 +5,11 @@ class CreateLessons < ActiveRecord::Migration
       t.text :body
       t.string :name
       t.text :description
+      t.string :slug
 
       t.timestamps
     end
+
+    add_index :lessons, :slug
   end
 end

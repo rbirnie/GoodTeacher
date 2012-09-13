@@ -1,4 +1,4 @@
-<%= semantic_form_for [@unit, @lesson] do |f| %>
+<%= semantic_form_for [@user, @unit, @lesson] do |f| %>
   <% if @lesson.errors.any? %>
     <div class="alert alert-error">
       <% @lesson.errors.full_messages.each do |msg| %>

@@ -5,20 +5,20 @@
   <div class="span10">
     <div class="boxes">
       <fieldset>
-        <legend><%= link_to "Your Courses", courses_path %></legend>
+        <legend><%= link_to "Your Courses", user_courses_path(current_user) %></legend>
           <% unless current_user.courses.blank? %>
             <%= render 'shared/courses' %>
           <% end %>
-          <%= link_to "Create Course", new_course_path %>
+          <%= link_to "Create Course", new_user_course_path(current_user) %>
         </fieldset>
     </div>
     <div class="boxes">
       <fieldset>
-        <legend><%= link_to "Unit Gallery", units_path %></legend>
+        <legend><%= link_to "Unit Gallery", user_units_path(current_user) %></legend>
           <% unless current_user.units.blank? %>
             <%= render 'shared/units' %>
           <% end %>
-          <%= link_to "Create Unit", new_unit_path %>
+          <%= link_to "Create Unit", new_user_unit_path(current_user) %>
         </fieldset>
     </div>
   </div>

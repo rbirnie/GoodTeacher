@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
     if current_user
       @courses = current_user.courses
       @units = current_user.units
+      @user = current_user
     end
   end
 

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -6,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :description, :name, :location, :school
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :description, :name, :location, :school, :username
   # attr_accessible :title, :body
 
   has_many :courses, :foreign_key => "user_id",
@@ -19,4 +20,12 @@ class User < ActiveRecord::Base
   has_many :authored_comments, class_name: "Comment"
 
   accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:body].blank? }
+
+
+  friendly_id :username, use: :slugged
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
+
 end

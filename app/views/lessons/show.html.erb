@@ -3,7 +3,7 @@
     <div class="boxes">
       <legend><%= @lesson.name %></legend>
       <p><%= @lesson.description %></p>
-      <p><%= link_to "Edit", edit_lesson_path(@lesson) %></p>
+      <p><%= link_to "Edit", edit_user_lesson_path(@user, @lesson) %></p>
     </div>
   </div>
   <div class="span6 offset2">

@@ -4,9 +4,12 @@ class CreateUnits < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :user_id
+      t.string :slug
 
       t.timestamps
 
     end
+
+    add_index :units, :slug
   end
 end

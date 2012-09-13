@@ -2,7 +2,7 @@
   <tbody>
     <% @units.each do |unit| %>
       <tr>
-        <td><%= link_to unit.name, unit %></td>
+        <td><%= link_to unit.name, user_unit_path(@user, unit) %></td>
         <td><%= distance_of_time_in_words(unit.created_at, Time.now) %> ago</td>
         <td><%= unit.description %></td><td></td>
       </tr>

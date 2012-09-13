@@ -2,7 +2,7 @@
   <div class="span6">
       <legend><%= @unit.name %></legend>
       <p><%= @unit.description %></p>
-      <p><%= link_to "Edit", edit_unit_path(@unit) %></p>
+      <p><%= link_to "Edit", edit_user_unit_path(@user, @unit) %></p>
   </div>
   <div class="span6">
     <legend>Content</legend>
@@ -10,7 +10,7 @@
         <h4>Lessons</h4>
         <%= render "lessons/lessons" %>
         <%# render "lessons/form" %>
-        <%= link_to "Add a Lesson", new_unit_lesson_path(@unit) %>
+        <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
       </fieldset>
   </div>
   <div class="span6">

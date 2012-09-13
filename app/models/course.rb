@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  extend FriendlyId
+
   belongs_to :user
 
   has_many :unit_links, :foreign_key => "course_id",
@@ -17,5 +19,11 @@ class Course < ActiveRecord::Base
                    :length => { :minimum => 2 },
                    :length => { :maximum => 150 },
                    :on => :update
+
+  friendly_id :name, use: :slugged
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 
 end

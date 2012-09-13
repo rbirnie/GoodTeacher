@@ -3,7 +3,7 @@
 <% @lessons.each do |lesson| %>
   <div class="boxes">
     <table>
-      <tr><td><strong><%= link_to lesson.name, lesson %></strong> - <%= lesson.description %></td></tr>
+      <tr><td><strong><%= link_to lesson.name, user_lesson_path(@user, lesson) %></strong> - <%= lesson.description %></td></tr>
       <tr><td><%= lesson.body %></td></tr>
     </table><br />
   </div>

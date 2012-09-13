@@ -4,8 +4,11 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.integer :user_id
+      t.string :slug
 
       t.timestamps
     end
+
+    add_index :courses, :slug
   end
 end

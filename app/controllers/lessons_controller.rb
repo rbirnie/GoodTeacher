@@ -2,53 +2,60 @@ class LessonsController < ApplicationController
 
 
   def index
+    @user = User.find(params[:user_id])
+    @lessons = @user.lessons
     @title = "My Lessons"
-    @unit = Unit.find(params[:unit_id])
-    @lessons = @unit.lessons
   end
   
 
   def show
-    @lesson = Lesson.find(params[:id])
+    @user = User.find(params[:user_id])
+    @lesson = @user.lessons.find(params[:id])
     @title = @lesson.name
-    @commentable = @lesson
+    @commentable = Lesson.find(params[:id])
     @comments = @commentable.comments
     @comment = Comment.new
   end
 
   def new
-    @title = "New Lesson"
-    @unit = Unit.find(params[:unit_id])
+    @user = User.find(params[:user_id])
+    @unit = @user.units.find(params[:unit_id])
     @lesson = @unit.lessons.build
+
+    @title = "New Lesson"
   end
 
   def create
-    @unit = Unit.find(params[:unit_id])
+    @user = User.find(params[:user_id])
+    @unit = @user.units.find(params[:unit_id])
     @lesson = Lesson.new(params[:lesson])
-    @lesson.user_id = current_user
+    @lesson.user_id = current_user.id
     @unit.lessons << @lesson
     @unit.save
     if @unit.save
-      redirect_to @lesson, notice: "Successfully created lesson."
+      redirect_to user_lesson_path(@user, @lesson), notice: "Successfully created lesson."
     else
       render :action => :new
     end
   end
 
   def edit
-    @lesson = Lesson.find(params[:id])
+    @user = User.find(params[:user_id])
+    @lesson = @user.lessons.find(params[:id])
   end
 
   def update
-    @lesson = Lesson.find(params[:id])
+    @user = User.find(params[:user_id])
+    @lesson = @user.lessons.find(params[:id])
     if @lesson.update_attributes(params[:lesson])
-      redirect_to @lesson, notice: "Successfully updated lesson."
+      redirect_to user_lesson_path(@user, @lesson), notice: "Successfully updated lesson."
     else
       render :edit
     end
   end
 
   def destroy
+    @user = User.find(params[:user_id])
     @lesson = current_user.lesson.find(params[:id])
     @lesson.destroy
     redirect_to lessons_url, notice: "Successfully destroyed lesson"

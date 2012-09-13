@@ -4,5 +4,9 @@ class AddInfoToUsers < ActiveRecord::Migration
     add_column :users, :school, :string
     add_column :users, :location, :string
     add_column :users, :description, :text
+    add_column :users, :username, :string
+    add_column :users, :slug, :string
+    
+    add_index :users, :slug
   end
 end

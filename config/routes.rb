@@ -6,11 +6,18 @@ GoodTeacher::Application.routes.draw do
 
   resources :users do
     resources :comments
+    resources :courses do
+      resources :comments
+    end
+    resources :lessons do
+      resources :comments
+    end
+    resources :units do
+      resources :comments
+      resources :lessons
+    end
   end
   resources :books do
-    resources :comments
-  end
-  resources :lessons do
     resources :comments
   end
   resources :assessments do
@@ -19,13 +26,8 @@ GoodTeacher::Application.routes.draw do
   resources :vocab_lists do
     resources :comments
   end
-  resources :units, :shallow => true do
-    resources :comments
-    resources :lessons
-  end
-  resources :courses do
-    resources :comments
-  end
+
+
   
   match '/about', :to => 'static_pages#about'
   match '/privacypolicy', :to => 'static_pages#privacypolicy'

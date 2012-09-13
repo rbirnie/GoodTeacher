@@ -1,4 +1,8 @@
-<%= semantic_form_for [@commentable, @comment] do |f| %>
+<% args = (@commentable == @user)? [@commentable, @comment] : [@user, @commentable, @comment] %>
+  <%# semantic_form_for [@commentable, @comment] do |f| %>
+<%# else %>
+  <%= semantic_form_for(args) do |f| %>
+<%# end %>
   <% if @comment.errors.any? %>
     <div class="alert alert-error">
       <h2>Please correct the following errors.</h2>
