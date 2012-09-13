@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
 private
 
   def load_commentable
-    klass = [Unit, Course, Lesson, Assessment].detect { |c| params["#{c.name.underscore}_id"] }
+    klass = [Unit, Course, Lesson, Assessment, VocabList].detect { |c| params["#{c.name.underscore}_id"] }
     if klass.blank?
       klass = [User].detect { |c| params["#{c.name.underscore}_id"] }
     end

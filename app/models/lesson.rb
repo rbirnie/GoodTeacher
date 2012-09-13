@@ -8,8 +8,6 @@ class Lesson < ActiveRecord::Base
                         :dependent => :destroy
   has_many :units, :through => :lessons_unitss
 
-  accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:body].blank? }
-  
   attr_accessible :body, :name, :description
 
   friendly_id :name, use: :slugged
@@ -17,5 +15,4 @@ class Lesson < ActiveRecord::Base
   def should_generate_new_friendly_id?
     new_record?
   end
-
 end

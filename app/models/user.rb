@@ -18,16 +18,14 @@ class User < ActiveRecord::Base
                      :dependent => :destroy
   has_many :assessments, :foreign_key => "user_id",
                      :dependent => :destroy
+  has_many :vocab_lists, :foreign_key => "user_id",
+                     :dependent => :destroy
   has_many :comments, :as => :commentable
   has_many :authored_comments, class_name: "Comment"
-
-  accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:body].blank? }
-
 
   friendly_id :username, use: :slugged
 
   def should_generate_new_friendly_id?
     new_record?
   end
-
 end

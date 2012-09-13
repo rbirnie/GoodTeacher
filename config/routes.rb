@@ -17,18 +17,19 @@ GoodTeacher::Application.routes.draw do
       resources :comments
       resources :lessons
       resources :assessments
+      resources :vocab_lists
     end
     resources :assessments do
       resources :comments
     end
-  end
-  resources :books do
-    resources :comments
-  end
   resources :vocab_lists do
     resources :comments
   end
+  end
 
+  resources :books do
+    resources :comments
+  end
 
   
   match '/about', :to => 'static_pages#about'

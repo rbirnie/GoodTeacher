@@ -13,10 +13,9 @@ class Unit < ActiveRecord::Base
   has_many :assessments_units, :foreign_key => "unit_id",
                         :dependent => :destroy
   has_many :assessments, :through => :assessments_units
-
-
-  accepts_nested_attributes_for :comments, :reject_if => lambda { |a| a[:body].blank? }
-  accepts_nested_attributes_for :lessons, :reject_if => lambda { |a| a[:name].blank? }
+  has_many :vocab_lists_units, :foreign_key => "unit_id",
+                        :dependent => :destroy
+  has_many :vocab_lists, :through => :vocab_lists_units
 
   attr_accessible :description, :name
 
@@ -30,5 +29,4 @@ class Unit < ActiveRecord::Base
   def should_generate_new_friendly_id?
     new_record?
   end
-
 end

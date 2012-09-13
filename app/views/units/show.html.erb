@@ -8,15 +8,18 @@
     <legend>Content</legend>
       <fieldset>
         <h4>Lessons</h4>
-        <%= render "lessons/lessons" %>
-        <%# render "lessons/form" %>
+        <%= render "shared/lessons" %>
         <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
       </fieldset>
       <fieldset>
         <h4>Assessments</h4>
-        <%= render "assessments/assessments" %>
-        <%# render "assessments/form" %>
+        <%= render "shared/assessments" %>
         <%= link_to "Add an Assesment", new_user_unit_assessment_path(@user, @unit) %>
+      </fieldset>
+      <fieldset>
+        <h4>Vocab Lists</h4>
+        <%= render "shared/vocab_lists" %>
+        <%= link_to "Add a Vocab List", new_user_unit_vocab_list_path(@user, @unit) %>
       </fieldset>
   </div>
   <div class="span6">
