@@ -20,6 +20,12 @@ class User < ActiveRecord::Base
                      :dependent => :destroy
   has_many :vocabulary_lists, :foreign_key => "user_id",
                      :dependent => :destroy
+  has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :reverse_relationships, foreign_key: "followed_id",
+                                   class_name: "Relationship",
+                                   dependent: :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
   has_many :comments, :as => :commentable
   has_many :authored_comments, class_name: "Comment"
 
@@ -27,5 +33,16 @@ class User < ActiveRecord::Base
 
   def should_generate_new_friendly_id?
     new_record?
+  end
+  def following?(other_user)
+    relationships.find_by_followed_id(other_user.id)
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by_followed_id(other_user.id).destroy
   end
 end

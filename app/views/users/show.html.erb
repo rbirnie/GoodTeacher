@@ -3,8 +3,7 @@
     <h1><%= @user.name %></h1>
     <strong>School:</strong> <%= @user.school %><br />
     <strong>Location:</strong> <%= @user.location %>
-      </tr>
-    </table>
+    <%= render 'follow_form' if signed_in? %>
   </div>
 </div>
 <div class="row">

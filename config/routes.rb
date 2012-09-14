@@ -5,6 +5,10 @@ GoodTeacher::Application.routes.draw do
   end
 
   resources :users do
+    member do
+      get :following, :followers
+    end
+    
     resources :comments
 
     resources :courses do
@@ -26,6 +30,8 @@ GoodTeacher::Application.routes.draw do
       resources :comments
     end
   end
+
+  resources :relationships, only: [:create, :destroy]
 
   resources :books do
     resources :comments
