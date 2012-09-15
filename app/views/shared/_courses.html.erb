@@ -1,13 +1,7 @@
-<table class="table">
-  <tbody>
-    <% @courses.each do |course| %>
-      <tr>
-        <td><%= link_to course.name, user_course_path(@user, course) %></td>
-        <td><%= distance_of_time_in_words(course.created_at, Time.now) %> ago</td>
-      </tr>
-      <tr>
-        <td><%= course.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% for course in @courses %>
+  <ul id="<%= course.id %>">
+    <%= link_to course.name, user_course_path(@user, course) %>
+    Created <%= distance_of_time_in_words(course.created_at, Time.now) %> ago <br />
+    <%= course.description %>
+  </ul>
+<% end %>

@@ -1,11 +1,11 @@
-<div class="row">
-  <div class="span10">
-    <div class="boxes">
-      <fieldset>
-        <legend><%= @title %></legend>
-        <%= render 'shared/units' %>
-      </fieldset>
-      <%= link_to "New Unit", new_user_unit_path %>
-    </div>
-  </div>
-</div>
+<legend><%= @title %></legend>
+
+<%= will_paginate @assessments %>
+
+<%= render 'shared/units' %>
+
+<%= will_paginate @assessments %>
+
+<% if current_user == @user %>
+  <%= link_to "New Unit", new_user_unit_path %>
+<% end %>

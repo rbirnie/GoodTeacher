@@ -1,18 +1,7 @@
-
-<div class="control-group">
   <%= f.label :word %>
-  <div class="controls"><%= f.text_field :word %></div>
-</div>
-<div class="control-group">
+  <%= f.text_field :word %>
   <%= f.label :definition %>
-  <div class="controls"><%= f.text_field :definition %></div>
-</div>
-<div class="control-group">
+  <%= f.text_field :definition %>
   <%= f.label :location %>
-  <div class="controls"><%= f.text_field :location %></div>
-</div>
-<div class="control-group">
-  <div class="controls">
-    <%= f.link_to_remove "Remove", :class => "btn btn-danger"%>
-  </div>
-</div>
+  <%= f.text_field :location %>
+  <%= f.link_to_remove "Remove", :class => "btn btn-danger"%>

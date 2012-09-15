@@ -1,11 +1,11 @@
-<div class="row">
-  <div class="span10">
-    <div class="boxes">
-      <fieldset>
-        <legend><%= @title %></legend>
-        <%= render 'shared/lessons' %>
-      </fieldset>
-      <%= link_to "New Lesson", new_user_lesson_path(@user) %>
-    </div>
-  </div>
-</div>
+<legend><%= @title %></legend>
+
+<%= will_paginate @lessons %>
+
+<%= render 'shared/lessons' %>
+
+<%= will_paginate @lessons %>
+
+<% if current_user == @user %>
+  <%= link_to "New Lesson", new_user_lesson_path(@user) %>
+<% end %>

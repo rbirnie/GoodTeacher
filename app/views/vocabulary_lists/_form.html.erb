@@ -1,31 +1,15 @@
-<%= semantic_nested_form_for [@user, @unit, @vocabulary_list], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
-  <% if @vocabulary_list.errors.any? %>
-    <div class="alert alert-error">
-      <% @vocabulary_list.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    </div>
-  <% end %>
-  <fieldset>
-    <div class="control-group">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
+<%= nested_form_for [@user, @unit, @vocabulary_list], :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="control-group">
-      <%= f.label :description %><br />
-      <%= f.text_area :description %>
-    </div>
-    
-  <div class="control-group">
-    <label>Vocabulary Words</label>
-    <%= f.fields_for :vocabularies %>
-    <%= f.link_to_add "Add Word", :vocabularies, :class => "btn btn-primary", :style => "float:right;" %>
-  </div>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
 
-    <div class="form-actions">
-      <p><%= f.submit "Save", :class => "btn-success" %></p>
-    </div>
-  </fieldset>
+  <%= f.label :description %><br />
+  <%= f.text_area :description %>
 
+  <label>Vocabulary Words</label>
+  <%= f.fields_for :vocabularies %>
+  <%= f.link_to_add "Add Word", :vocabularies, :class => "btn btn-primary", :style => "float:right;" %>
+
+  <%= f.submit "Save", :class => "btn btn-large btn-primary" %>
 <% end %>

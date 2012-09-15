@@ -1,24 +1,19 @@
 <div class="row">
   <div class="span6 offset2">
-    <div class="boxes">
-      <legend><%= @vocabulary_list.name %></legend>
-      <p><%= @vocabulary_list.description %></p>
-      <p><%= link_to "Edit", edit_user_vocabulary_list_path(@user, @vocabulary_list) %></p>
-    </div>
-    <div class="boxes">
-      <legend>Vocabulary Words: </legend>
-      <% @vocabulary_list.vocabularies.each do |vocabulary| %>
-        <p><strong><%= vocabulary.word %></strong> - <%= vocabulary.definition %> </p>
-        <p><%= vocabulary.location %></p>
-      <% end %>
-    </div>
-  </div>
-  <div class="span6 offset2">
-      <legend>Comments</legend>
-        <fieldset>
-          <%= render "comments/comments" %>
-          <%= render "comments/form" %>
-        </fieldset>
+    <legend><%= @vocabulary_list.name %></legend>
+    <%= @vocabulary_list.description %>
+    <%= link_to "Edit", edit_user_vocabulary_list_path(@user, @vocabulary_list) %>
+  
+    <legend>Vocabulary Words: </legend>    
+    <% @vocabulary_list.vocabularies.each do |vocabulary| %>
+      <strong><%= vocabulary.word %></strong> - <%= vocabulary.definition %> </p>
+      <%= vocabulary.location %></p>
+    <% end %>
 
+  </div>
+  <div class="span4 offset2">
+    <legend>Comments</legend>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
   </div>
 </div>

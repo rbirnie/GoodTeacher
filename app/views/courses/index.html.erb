@@ -1,11 +1,11 @@
-<div class="row">
-  <div class="span10">
-    <div class="boxes">
-      <fieldset>
-        <legend><%= @title %></legend>
-        <%= render 'shared/courses' %>
-      </fieldset>
-      <%= link_to "New Course", new_user_course_path(@user) %>
-    </div>
-  </div>
-</div>
+<h1><%= @title %></h1>
+
+<%= will_paginate @courses %>
+
+<%= render 'shared/courses' %>
+
+<%= will_paginate @courses %>
+
+<% if current_user == @user %>
+  <%= link_to "New Course", new_user_course_path(@user) %>
+<% end %>

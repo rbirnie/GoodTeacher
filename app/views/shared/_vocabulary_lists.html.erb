@@ -1,11 +1,5 @@
-<div class="boxes">
-<div id="vocabulary_lists">
 <% @vocabulary_lists.each do |vocabulary_list| %>
-  <div class="boxes">
-    <table>
-      <tr><td><strong><%= link_to vocabulary_list.name, user_vocabulary_list_path(@user, vocabulary_list) %></strong> - <%= vocabulary_list.description %></td></tr>
-    </table><br />
-  </div>
+  <ul>
+    <strong><%= link_to vocabulary_list.name, user_vocabulary_list_path(@user, vocabulary_list) %></strong> - <%= vocabulary_list.description %>
+  </ul>
 <% end %>
-</div>
-</div>

@@ -1,24 +1,11 @@
-<%= semantic_form_for [@user, @course] do |f| %>
-  <% if @course.errors.any? %>
-    <div class="alert alert-error">
-      <% @course.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    </div>
-  <% end %>
-  <fieldset>
-    <div class="control-group">
-      <%= f.label :name %><br />
-      <%= f.text_field :name %>
-    </div>
+<%= form_for [@user, @course] do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-    <div class="control-group">
-      <%= f.label :description %><br />
-      <%= f.text_area :description %>
-    </div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
   
-    <div class="form-actions">
-      <p><%= f.submit "Save", :class => "btn-success" %></p>
-    </div>
-  </fieldset>
+  <%= f.submit "Save", :class => "btn btn-large btn-primary" %></p>
 <% end %>

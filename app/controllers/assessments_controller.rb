@@ -2,7 +2,7 @@ class AssessmentsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @assessments = @user.assessments
+    @assessments = @user.assessments.paginate(page: params[:page])
     @title = "My Assessments"
   end
   

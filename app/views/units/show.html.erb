@@ -1,32 +1,30 @@
 <div class="row">
-  <div class="span6">
+  <div class="span8 offset2">
       <legend><%= @unit.name %></legend>
-      <p><%= @unit.description %></p>
-      <p><%= link_to "Edit", edit_user_unit_path(@user, @unit) %></p>
+      <%= @unit.description %>
+      <%= link_to "Edit", edit_user_unit_path(@user, @unit) %>
   </div>
-  <div class="span6">
+  <div class="span8 offset2">
     <legend>Content</legend>
-      <fieldset>
-        <h4>Lessons</h4>
-        <%= render "shared/lessons" %>
-        <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
-      </fieldset>
-      <fieldset>
-        <h4>Assessments</h4>
-        <%= render "shared/assessments" %>
-        <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
-      </fieldset>
-      <fieldset>
-        <h4>Vocabulary Lists</h4>
-        <%= render "shared/vocabulary_lists" %>
-        <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
-      </fieldset>
+    <h3>Lessons</h3>
+    <%= render "shared/lessons" %>
+    <%= will_paginate @lessons %>
+    <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
+
+    <h3>Assessments</h3>
+    <%= render "shared/assessments" %>
+    <%= will_paginate @assessments %>
+    <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
+
+    <h3>Vocabulary Lists</h3>
+    <%= render "shared/vocabulary_lists" %>
+    <%= will_paginate @vocabulary_lists %>
+    <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
   </div>
-  <div class="span6">
+
+  <div class="span4 offset2">
     <legend>Comments</legend>
-      <fieldset>
-        <%= render "comments/comments" %>
-        <%= render "comments/form" %>
-      </fieldset>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
   </div>
 </div>

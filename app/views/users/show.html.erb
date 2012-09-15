@@ -1,27 +1,30 @@
-<div class="row boxes" id="profile">
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1><%= @user.name %></h1>
+      <strong>School:</strong> <%= @user.school %><br />
+      <strong>Location:</strong> <%= @user.location %>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
   <div class="span8">
-    <h1><%= @user.name %></h1>
-    <strong>School:</strong> <%= @user.school %><br />
-    <strong>Location:</strong> <%= @user.location %>
-    <%= render 'follow_form' if signed_in? %>
+    <section>
+      <%= render 'follow_form' if signed_in? %>
+      <h3>About Me</h3>
+      <%= @user.description %>
+    </section>
+    <section>
+      <h3>Comments</h3>
+      <%= render "comments/comments" %>
+      <%= render "comments/form" %>
+    </section>
+    <% if @units.any? %>
+      <section>
+        <h3>My Units</h3>
+        <%= render 'shared/units' %>
+      </section>
+    <% end %>
   </div>
-</div>
-<div class="row">
-  <fieldset>
-    <legend>About Me</legend>
-    <p><%= @user.description %></p>
-  </fieldset>
-</div>
-<div class="row">
-  <fieldset>
-    <legend>Comments</legend>
-    <%= render "comments/comments" %>
-    <%= render "comments/form" %>
-  </fieldset>
-</div>
-<div class="row">
-  <fieldset>
-    <legend>My Units</legend>
-    <%= render 'shared/units' %>
-  </fieldset>
 </div>

@@ -4,7 +4,7 @@ class UnitsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @title = "My units"
-    @units = current_user.units.all
+    @units = @user.units.paginate(page: params[:page])
   end
   
 
@@ -17,11 +17,11 @@ class UnitsController < ApplicationController
     @comment = Comment.new
 
     @lesson = Lesson.new
-    @lessons = @unit.lessons
+    @lessons = @unit.lessons.paginate(page: params[:page]).per_page(5)
     @assessment = Assessment.new
-    @assessments = @unit.assessments
+    @assessments = @unit.assessments.paginate(page: params[:page]).per_page(5)
     @vocabulary_list = VocabularyList.new
-    @vocabulary_lists = @unit.vocabulary_lists
+    @vocabulary_lists = @unit.vocabulary_lists.paginate(page: params[:page]).per_page(5)
   end
 
   def new

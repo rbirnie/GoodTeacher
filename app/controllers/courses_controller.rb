@@ -4,7 +4,7 @@ class CoursesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @title = "My Courses"
-    @courses = @user.courses.all
+    @courses = @user.courses.paginate(page: params[:page])
   end
   
 

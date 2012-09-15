@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @lessons = @user.lessons
+    @lessons = @user.lessons.paginate(page: params[:page])
     @title = "My Lessons"
   end
   

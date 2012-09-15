@@ -1,40 +1,24 @@
-<div class="boxes">
-  <%= semantic_form_for @user do |f| %>
+<%= form_for @user do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
 
-  <% if @user.errors.any? %>
-    <div class="alert alert-error">
-      <% @user.errors.full_messages.each do |msg| %>
-        <p><%= msg %></p>
-      <% end %>
-    </div>
-  <% end %>
+  <legend>Basic Information</legend>      
 
-  <fieldset>
-    <legend>Basic Information</legend>      
-    <div class="control-group">
-      <%= f.label :name %>
-      <div class="controls"><%= f.text_field :name %></div>
-    </div>
-    <div class="control-group">
-      <%= f.label :email %>
-      <div class="controls"><%= f.text_field :email %></div>
-    <div class="control-group">
-      <%= f.label :school %>
-      <div class="controls"><%= f.text_field :school %></div>
-    </div>
-    <div class="control-group">
-      <%= f.label :location %>
-      <div class="controls"><%= f.text_field :location %></div>
-    </div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
 
-    <legend>About Me</legend>
-    <div class="control-group">
-      <%= f.label :description %>
-      <div class="controls"><%= f.text_area :description, :class => "span5" %></div>
-    </div>
-    <div class="form-actions">
-      <%= f.submit :class => "btn=success" %>
-    </div>
-  </fieldset>
-  <% end %>
-</div>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+      
+  <%= f.label :school %>
+  <%= f.text_field :school %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+
+  <legend>About Me</legend>
+
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+  <%= f.submit "Save Changes", :class => "btn btn-large btn-primary" %>
+<% end %>
