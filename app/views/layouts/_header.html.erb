@@ -1,0 +1,24 @@
+<header>
+<header class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">GoodTeacher</a>
+      <nav>
+        <ul class="nav pull-right">
+          <% if user_signed_in?  %>
+            <p class="navbar-text pull-right">
+            Signed in as <%= link_to current_user.email, user_path(current_user) %> | 
+            <%= link_to "Edit Profile", edit_user_path(current_user) %> |
+            <%= link_to "Sign out", logout_path %>
+            </p>
+            <% else %>
+            <p class="navbar-text pull-right">
+            <%= link_to "Teacher sign up", new_user_registration_path %> or 
+            <%= link_to "Teacher sign in", new_user_session_path %>
+            </p>
+            <% end %>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
