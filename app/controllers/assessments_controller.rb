@@ -14,6 +14,12 @@ class AssessmentsController < ApplicationController
     @commentable = Assessment.find(params[:id])
     @comments = @commentable.comments
     @comment = Comment.new
+    @favorable = @assessment
+    if @assessment.favorites.where(favorer: current_user).first
+      @favorite = @assessment.favorites.where(favorer: current_user).first
+    else
+      @favorite = Favorite.new
+    end
   end
 
   def new

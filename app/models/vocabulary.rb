@@ -4,4 +4,5 @@ class Vocabulary < ActiveRecord::Base
   belongs_to :vocabulary_list
 
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
 end

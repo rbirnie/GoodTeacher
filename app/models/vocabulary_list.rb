@@ -9,6 +9,7 @@ class VocabularyList < ActiveRecord::Base
                                :dependent => :destroy
   has_many :units, :through => :vocabulary_lists_units
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
 
   accepts_nested_attributes_for :vocabularies, :reject_if => lambda { |a| a[:word].blank? }, allow_destroy: true
 

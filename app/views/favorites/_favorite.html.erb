@@ -1,0 +1,4 @@
+<%= form_for([@user, @favorable, @favorite]) do |f| %>
+  <div><%= f.hidden_field :favorer, :value => "#{current_user.id}" %></div>
+  <%= f.submit "Favorite", class: "btn btn-large btn-primary" %>
+<% end %>

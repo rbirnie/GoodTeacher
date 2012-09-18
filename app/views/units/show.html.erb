@@ -1,25 +1,36 @@
 <div class="row">
   <div class="span8 offset2">
-      <legend><%= @unit.name %></legend>
-      <%= @unit.description %>
+    <legend><%= @unit.name %></legend>
+    <%= @unit.description %>
+    <% if current_user == @user %>
       <%= link_to "Edit", edit_user_unit_path(@user, @unit) %>
+    <% end %>
+    <section>
+      <%= render 'favorites/favorite_form' if signed_in? %>
+    </section>
   </div>
   <div class="span8 offset2">
     <legend>Content</legend>
-    <h3>Lessons</h3>
+    <h2>Lessons</h1>
     <%= render "shared/lessons" %>
     <%= will_paginate @lessons %>
-    <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
+    <% if current_user == @user %>
+      <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
+    <% end %>
 
-    <h3>Assessments</h3>
+    <h2>Assessments</h2>
     <%= render "shared/assessments" %>
     <%= will_paginate @assessments %>
-    <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
+    <% if current_user == @user %>
+      <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
+    <% end %>
 
-    <h3>Vocabulary Lists</h3>
+    <h2>Vocabulary Lists</h2>
     <%= render "shared/vocabulary_lists" %>
     <%= will_paginate @vocabulary_lists %>
-    <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
+    <% if current_user == @user %>
+      <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
+    <% end %>
   </div>
 
   <div class="span4 offset2">

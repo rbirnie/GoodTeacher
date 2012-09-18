@@ -15,6 +15,12 @@ class UnitsController < ApplicationController
     @commentable = @unit
     @comments = @commentable.comments
     @comment = Comment.new
+    @favorable = @unit
+    if @unit.favorites.where(favorer: current_user).first
+      @favorite = @unit.favorites.where(favorer: current_user).first
+    else
+      @favorite = Favorite.new
+    end
 
     @lesson = Lesson.new
     @lessons = @unit.lessons.paginate(page: params[:page]).per_page(5)

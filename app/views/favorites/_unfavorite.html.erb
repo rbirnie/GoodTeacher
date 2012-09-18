@@ -1,0 +1,4 @@
+<%= form_for([@user, @favorable, @favorite],
+             html: { method: :delete }, remote: true) do |f| %>
+  <%= f.submit "Unfavorite", class: "btn btn-large" %>
+<% end %>

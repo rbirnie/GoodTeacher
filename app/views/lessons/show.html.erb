@@ -1,8 +1,13 @@
 <div class="row">
   <div class="span8 offset2">
     <legend><%= @lesson.name %></legend>
+    <section>
+      <%= render 'favorites/favorite_form' if signed_in? %>
+    </section>
     <%= @lesson.description %>
-    <%= link_to "Edit", edit_user_lesson_path(@user, @lesson) %>
+    <% if current_user == @user %>
+      <%= link_to "Edit", edit_user_lesson_path(@user, @lesson) %>
+    <% end %>
   </div>
   <div class="span4 offset2">
     <legend>Comments</legend>

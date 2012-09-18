@@ -14,6 +14,12 @@ class LessonsController < ApplicationController
     @commentable = Lesson.find(params[:id])
     @comments = @commentable.comments
     @comment = Comment.new
+    @favorable = @lesson
+    if @lesson.favorites.where(favorer: current_user).first
+      @favorite = @lesson.favorites.where(favorer: current_user).first
+    else
+      @favorite = Favorite.new
+    end
   end
 
   def new

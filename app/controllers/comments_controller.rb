@@ -30,5 +30,4 @@ private
     end
     @commentable = klass.find(params["#{klass.name.underscore}_id"])
   end
-
 end

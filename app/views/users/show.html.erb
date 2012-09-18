@@ -1,7 +1,7 @@
 <div class="row">
   <aside class="span4">
     <section>
-      <h1><%= @user.name %></h1>
+      <legend><%= @user.name %></legend>
       <strong>School:</strong> <%= @user.school %><br />
       <strong>Location:</strong> <%= @user.location %>
     </section>
@@ -12,17 +12,17 @@
   <div class="span8">
     <section>
       <%= render 'follow_form' if signed_in? %>
-      <h3>About Me</h3>
+      <legend>About Me</legend>
       <%= @user.description %>
     </section>
     <section>
-      <h3>Comments</h3>
+      <legend>Comments</legend>
       <%= render "comments/comments" %>
       <%= render "comments/form" %>
     </section>
     <% if @units.any? %>
       <section>
-        <h3>My Units</h3>
+        <legend>My Units</legend>
         <%= render 'shared/units' %>
       </section>
     <% end %>

@@ -7,6 +7,7 @@ class Course < ActiveRecord::Base
                         :dependent => :destroy
   has_many :units, :through => :unit_links 
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
 
   attr_accessible :description, :name
 

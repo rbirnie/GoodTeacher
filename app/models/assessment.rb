@@ -7,6 +7,7 @@ class Assessment < ActiveRecord::Base
                                :dependent => :destroy
   has_many :units, :through => :assessments_units
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
 
   friendly_id :name, use: :slugged
 

@@ -1,10 +1,13 @@
 <div class="row">
   <div class="span6 offset2">
     <legend><%= @vocabulary_list.name %></legend>
+    <section>
+      <%= render 'favorites/favorite_form' if signed_in? %>
+    </section>
     <%= @vocabulary_list.description %>
     <%= link_to "Edit", edit_user_vocabulary_list_path(@user, @vocabulary_list) %>
   
-    <legend>Vocabulary Words: </legend>    
+    <legend>Vocabulary Words: </legend>
     <% @vocabulary_list.vocabularies.each do |vocabulary| %>
       <strong><%= vocabulary.word %></strong> - <%= vocabulary.definition %> </p>
       <%= vocabulary.location %></p>

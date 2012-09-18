@@ -4,6 +4,7 @@ class Lesson < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
   has_many :lessons_unitss, :foreign_key => "lesson_id",
                         :dependent => :destroy
   has_many :units, :through => :lessons_unitss

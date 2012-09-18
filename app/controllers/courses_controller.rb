@@ -15,6 +15,12 @@ class CoursesController < ApplicationController
     @commentable = @course
     @comments = @commentable.comments
     @comment = Comment.new
+    @favorable = @course
+    if @course.favorites.where(favorer: current_user).first
+      @favorite = @course.favorites.where(favorer: current_user).first
+    else
+      @favorite = Favorite.new
+    end
   end
 
   def new

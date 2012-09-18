@@ -4,6 +4,7 @@ class Unit < ActiveRecord::Base
   belongs_to :user
 
   has_many :comments, :as => :commentable
+  has_many :favorites, :as => :favorable
   has_many :unit_links, :foreign_key => "unit_id",
                         :dependent => :destroy
   has_many :courses, :through => :unit_links

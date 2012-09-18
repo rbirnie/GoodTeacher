@@ -11,9 +11,15 @@ class VocabularyListsController < ApplicationController
     @user = User.find(params[:user_id])
     @vocabulary_list = @user.vocabulary_lists.find(params[:id])
     @title = @vocabulary_list.name
-    @commentable = VocabularyList.find(params[:id])
+    @commentable = @vocabulary_list
     @comments = @commentable.comments
     @comment = Comment.new
+    @favorable = @vocabulary_list
+    if @vocabulary_list.favorites.where(favorer: current_user).first
+      @favorite = @vocabulary_list.favorites.where(favorer: current_user).first
+    else
+      @favorite = Favorite.new
+    end
   end
 
   def new

@@ -13,21 +13,26 @@ GoodTeacher::Application.routes.draw do
 
     resources :courses do
       resources :comments
+      resources :favorites
     end
     resources :lessons do
       resources :comments
+      resources :favorites
     end
     resources :units do
       resources :comments
+      resources :favorites
       resources :lessons
       resources :assessments
       resources :vocabulary_lists
     end
     resources :assessments do
       resources :comments
+      resources :favorites
     end
     resources :vocabulary_lists do
       resources :comments
+      resources :favorites
     end
   end
 
@@ -35,6 +40,7 @@ GoodTeacher::Application.routes.draw do
 
   resources :books do
     resources :comments
+    resources :favorites
   end
 
   

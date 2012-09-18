@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120914180156) do
+ActiveRecord::Schema.define(:version => 20120917054336) do
 
   create_table "assessments", :force => true do |t|
     t.string   "name"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20120914180156) do
   end
 
   add_index "courses", ["slug"], :name => "index_courses_on_slug"
+
+  create_table "favorites", :force => true do |t|
+    t.integer  "favorer"
+    t.integer  "favorable_id"
+    t.string   "favorable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
 
   create_table "lessons", :force => true do |t|
     t.integer  "user_id"
