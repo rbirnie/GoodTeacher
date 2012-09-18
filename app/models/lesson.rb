@@ -9,7 +9,7 @@ class Lesson < ActiveRecord::Base
                         :dependent => :destroy
   has_many :units, :through => :lessons_unitss
 
-  attr_accessible :body, :name, :description
+  attr_accessible :body, :name, :description, :user_id
 
   friendly_id :name, use: :slugged
 

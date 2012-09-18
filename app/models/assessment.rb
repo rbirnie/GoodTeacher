@@ -1,7 +1,7 @@
 class Assessment < ActiveRecord::Base
   extend FriendlyId
 
-  attr_accessible :prompt, :description, :name, :which
+  attr_accessible :prompt, :description, :name, :which, :user_id
 
   has_many :assessments_units, :foreign_key => "assessment_id",
                                :dependent => :destroy
@@ -11,7 +11,4 @@ class Assessment < ActiveRecord::Base
 
   friendly_id :name, use: :slugged
 
-  def should_generate_new_friendly_id?
-    new_record?
-  end
 end

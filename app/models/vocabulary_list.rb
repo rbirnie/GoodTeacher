@@ -1,7 +1,7 @@
 class VocabularyList < ActiveRecord::Base
   extend FriendlyId
 
-  attr_accessible :description, :name, :vocabularies_attributes
+  attr_accessible :description, :name, :vocabularies_attributes, :user_id
 
   has_many :vocabularies, :foreign_key => "vocabulary_list_id",
                      :dependent => :destroy
