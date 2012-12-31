@@ -1,22 +1,27 @@
-<header>
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
       <a class="brand" href="/">GoodTeacher</a>
+      <%= link_to "Explore", users_path, :class => "brand" %>
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav pull-right" id="menu">
           <% if user_signed_in?  %>
-            <p class="navbar-text pull-right">
-            Signed in as <%= link_to current_user.email, user_path(current_user) %> | 
-            <%= link_to "Edit Profile", edit_user_path(current_user) %> |
-            <%= link_to "Sign out", logout_path %>
+            <div class="dropdown">
+              Signed in as
+              <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                <%= current_user.email %><b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledyby="dLabel">
+                <li><%= link_to "View Profile", user_path(current_user) %></li>
+                <li><%= link_to "Edit Profile", edit_user_path(current_user) %></li>
+                <li><%= link_to "Sign out", logout_path %></li>
+              </ul>
+          <% else %>
+            <p class="navbar-text"> Teacher
+              <%= link_to "Sign up", new_user_registration_path %> or 
+              <%= link_to "Sign in", new_user_session_path %>
             </p>
-            <% else %>
-            <p class="navbar-text pull-right">
-            <%= link_to "Teacher sign up", new_user_registration_path %> or 
-            <%= link_to "Teacher sign in", new_user_session_path %>
-            </p>
-            <% end %>
+          <% end %>
         </ul>
       </nav>
     </div>

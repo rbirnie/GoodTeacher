@@ -1,0 +1,11 @@
+  <%= f.label :question %>
+  <%= f.text_field :question %>
+  <%= f.label :modality %>
+  <%= f.text_field :modality %>
+
+  <label>Answers</label>
+  <%= f.fields_for :answers %>
+  <%= f.link_to_add "Add Answer", :answers, :class => "btn btn-primary", :style => "float:right;" %>
+
+
+  <%= f.link_to_remove "Remove Question", :class => "btn btn-danger"%>

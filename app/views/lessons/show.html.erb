@@ -1,17 +1,13 @@
 <div class="row">
-  <div class="span8 offset2">
+  <div class="span8">
     <legend><%= @lesson.name %></legend>
-    <section>
-      <%= render 'favorites/favorite_form' if signed_in? %>
-    </section>
     <%= @lesson.description %>
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_lesson_path(@user, @lesson) %>
     <% end %>
+    <hr />
+    <section>
+      <%= @lesson.body %>
+    </section>
   </div>
-  <div class="span4 offset2">
-    <legend>Comments</legend>
-    <%= render "comments/comments" %>
-    <%= render "comments/form" %>
-  </div>
-</div>
+  <%= render 'shared/side_show' %>

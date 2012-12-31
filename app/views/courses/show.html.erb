@@ -1,21 +1,14 @@
 <div class="row">
-  <div class="span8 offset2">
+  <div class="span8">
     <legend><%= @course.name %></legend>
-    <section>
-      <%= render 'favorites/favorite_form' if signed_in? %>
-    </section>
     <%= @course.description %>
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_course_path(@user, @course) %>
     <% end %>
-  </div>
-  <div class="span4 offset2">
-    <legend>Comments</legend>
-    <%= render "comments/comments" %>
-    <%= render "comments/form" %>
-  </div>
-  <div class="span4">
-    <% unless @course.units.blank? %>
+    <hr />
+    <% if @course.units.empty? %>
+      <p>There do not appear to be any <%= link_to "Units", user_unit_path(@user) %> attached to this course. Tell the user to make some!</p>
+    <% else %>
       <% @course.units.each do |unit| %>
         <ul>
           <b><%= unit.name %></b>
@@ -24,4 +17,4 @@
       <% end %>
     <% end %>
   </div>
-</div>
+  <%= render 'shared/side_show' %>

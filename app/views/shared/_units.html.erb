@@ -1,7 +1,7 @@
 <% @units.each do |unit| %>
   <ul>
     <%= link_to unit.name, user_unit_path(@user, unit) %>
-    <%= distance_of_time_in_words(unit.created_at, Time.now) %> ago
+    Created <%= distance_of_time_in_words(unit.created_at, Time.now) %> ago <br />
     <%= unit.description %>
   </ul>
 <% end %>

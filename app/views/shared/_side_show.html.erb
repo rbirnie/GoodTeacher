@@ -1,0 +1,14 @@
+  <aside class="span3">
+    <%= render 'shared/stats' %>
+    <section>
+      <%= render 'favorites/favorite_form' if signed_in? %>
+    </section>
+  </aside>
+</div>
+<div class="row">
+  <div class="span6">
+    <legend>Comments</legend>
+    <%= render "comments/comments" %>
+    <%= render "comments/form" %>
+  </div>
+</div>

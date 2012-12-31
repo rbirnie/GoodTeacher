@@ -3,7 +3,7 @@ class VocabularyListsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @vocabulary_lists = @user.vocabulary_lists.paginate(page: params[:page])
-    @title = "My Vocab Lists"
+    @title = "My Vocabulary Lists"
   end
   
 

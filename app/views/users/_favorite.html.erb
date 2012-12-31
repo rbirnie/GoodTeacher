@@ -1,0 +1,46 @@
+
+<% unless @favorite_courses.blank? %>
+  <% @favorite_courses.each do |fav| %>
+    <li>
+      <%= link_to "fav.name" [fav.user, fav] %> - <%= fav.user.name %>
+    </li>
+  <% end %>
+<% else %>
+  No courses
+<% end %>
+<% unless @favorite_units.blank? %>
+  <% @favorite_units.each do |fav| %>
+    <li>
+      <%= link_to "fav.name" [fav.user, fav] %> - <%= fav.user.name %>
+    </li>
+  <% end %>
+<% else %>
+  No units
+<% end %>
+<% unless @favorite_lessons.blank? %>
+  <% @favorite_lessons.each do |fav| %>
+    <li>
+      <%= link_to "fav.name" [fav.user, fav] %> - <%= fav.user.name %>
+    </li>
+  <% end %>
+<% else %>
+  No lessons
+<% end %>
+<% unless @favorite_assessments.blank? %>
+  <% @favorite_assessments.each do |fav| %>
+    <li>
+      <%= link_to "fav.name" [fav.user, fav] %> - <%= fav.user.name %>
+    </li>
+  <% end %>
+<% else %>
+  No assessments
+<% end %>
+<% unless @favorite_vocab.blank? %>
+  <% @favorite_vocab.each do |fav| %>
+    <li>
+      <%= link_to "fav.name" [fav.user, fav] %> - <%= fav.user.name %>
+    </li>
+  <% end %>
+<% else %>
+  No vocab
+<% end %>

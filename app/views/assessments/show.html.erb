@@ -1,18 +1,11 @@
 <div class="row">
-  <div class="span8 offset2">
+  <div class="span8">
     <legend><%= @assessment.name %></legend>
-    <section>
-      <%= render 'favorites/favorite_form' if signed_in? %>
-    </section>
     <%= @assessment.description %>
+    <hr />
     <%= @assessment.prompt %>
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_assessment_path(@user, @assessment) %>
     <% end %>
   </div>
-  <div class="span4 offset2">
-    <legend>Comments</legend>
-    <%= render "comments/comments" %>
-    <%= render "comments/form" %>
-  </div>
-</div>
+  <%= render 'shared/side_show' %>

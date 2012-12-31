@@ -1,41 +1,37 @@
 <div class="row">
-  <div class="span8 offset2">
+  <div class="span8">
     <legend><%= @unit.name %></legend>
     <%= @unit.description %>
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_unit_path(@user, @unit) %>
     <% end %>
-    <section>
-      <%= render 'favorites/favorite_form' if signed_in? %>
-    </section>
-  </div>
-  <div class="span8 offset2">
-    <legend>Content</legend>
-    <h2>Lessons</h1>
-    <%= render "shared/lessons" %>
-    <%= will_paginate @lessons %>
-    <% if current_user == @user %>
-      <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
+    
+    <% if @lessons.any? || current_user == @user %>
+      <legend>Content</legend>
+      <h2>Lessons</h1>
+      <%= render "shared/lessons" %>
+      <%= will_paginate @lessons %>
+      <% if current_user == @user %>
+        <%= link_to "Add a Lesson", new_user_unit_lesson_path(@user, @unit) %>
+      <% end %>
     <% end %>
 
-    <h2>Assessments</h2>
-    <%= render "shared/assessments" %>
-    <%= will_paginate @assessments %>
-    <% if current_user == @user %>
-      <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
+    <% if @assessments.any? || current_user == @user %>
+      <h2>Assessments</h2>
+      <%= render "shared/assessments" %>
+      <%= will_paginate @assessments %>
+      <% if current_user == @user %>
+        <%= link_to "Add an Assessment", new_user_unit_assessment_path(@user, @unit) %>
+      <% end %>
     <% end %>
 
-    <h2>Vocabulary Lists</h2>
-    <%= render "shared/vocabulary_lists" %>
-    <%= will_paginate @vocabulary_lists %>
-    <% if current_user == @user %>
-      <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
+    <% if @vocabulary_lists.any? || current_user == @user %>
+      <h2>Vocabulary Lists</h2>
+      <%= render "shared/vocabulary_lists" %>
+      <%= will_paginate @vocabulary_lists %>
+      <% if current_user == @user %>
+        <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
+      <% end %>
     <% end %>
   </div>
-
-  <div class="span4 offset2">
-    <legend>Comments</legend>
-    <%= render "comments/comments" %>
-    <%= render "comments/form" %>
-  </div>
-</div>
+  <%= render 'shared/side_show' %>

@@ -1,11 +1,18 @@
-<legend><%= @title %></legend>
+<div class="row">
+  <div class="span8">
+    <legend><%= @title %></legend>
 
-<%= will_paginate @vocabulary_lists %>
+      <%= will_paginate @vocabulary_lists %>
 
-<%= render 'shared/vocabulary_lists' %>
+      <%= render 'shared/vocabulary_lists' %>
 
-<%= will_paginate @vocabulary_lists %>
+      <%= will_paginate @vocabulary_lists %>
 
-<% if current_user == @user %>
-  <%= link_to "New Lesson", new_user_vocabulary_list_path(@user) %>
-<% end %>
+      <% if current_user == @user %>
+        <%= link_to "New Vocabulary List", new_user_vocabulary_list_path(@user) %>
+      <% end %>
+  </div>
+    <aside class="span3">
+    <%= render 'shared/stats' %>
+  </aside>
+</div>
