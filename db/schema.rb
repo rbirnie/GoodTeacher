@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120917054336) do
+ActiveRecord::Schema.define(:version => 20120921232639) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "answer"
+    t.integer  "question_id"
+    t.boolean  "correct"
+    t.integer  "creator"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "assessments", :force => true do |t|
     t.string   "name"
@@ -81,6 +90,15 @@ ActiveRecord::Schema.define(:version => 20120917054336) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "questions", :force => true do |t|
+    t.text     "question"
+    t.string   "modality"
+    t.integer  "assessment_id"
+    t.integer  "creator"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -129,6 +147,7 @@ ActiveRecord::Schema.define(:version => 20120917054336) do
     t.text     "description"
     t.string   "username"
     t.string   "slug"
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

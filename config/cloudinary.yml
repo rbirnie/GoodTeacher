@@ -1,0 +1,12 @@
+# config/cloudinary.yml
+
+development:
+  cloud_name: "goodteacher"
+  api_key: "821191827482652"
+  api_secret: "8JDfQXDB8U7mzIfincDZthlSdy4"
+
+production:
+  cloud_name: "goodteacher"
+  api_key: "821191827482652"
+  api_secret: "8JDfQXDB8U7mzIfincDZthlSdy4"
+

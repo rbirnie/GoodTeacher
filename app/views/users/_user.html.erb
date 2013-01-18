@@ -1,3 +1,10 @@
 <li>
-  <%= link_to user.name, user %> - <%= user.school %>
+  <div class="row">
+    <div class="span">
+      <% unless user.avatar_url.nil? %><%= image_tag user.avatar_url(:thumbnail) %>
+    </div>
+    <div class="span">
+      <% end %><%= link_to user.name, user %> - <%= user.school %><br />
+      Located in <%= user.location %>
+    </div>
 </li>
