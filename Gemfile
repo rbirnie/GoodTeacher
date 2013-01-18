@@ -12,7 +12,7 @@ gem 'bootstrap-will_paginate'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'cloudinary'
-
+gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,13 +26,13 @@ end
 
 group :development do
   gem 'meta_request', '0.2.0'
-  gem 'sqlite3'
-  gem 'therubyracer'
+#  gem 'sqlite3'
+#  gem 'therubyracer'
 end
 
 group :production do
-  gem 'pg'
-  gem 'thin'
+#  gem 'pg'
+#  gem 'thin'
 end
 
 # To use ActiveModel has_secure_password
