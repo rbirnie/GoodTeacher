@@ -5,3 +5,18 @@ This is a side project to keep RoR skills up to date. Just kinda hacking away. H
 Have fun looking around. Some of the neater parts that were new to me are using full nested slugged urls and my polymorphic comments controller.
 
 If you have any comments on how I've set stuff up please let me know. Would love a good code review, as I know I'm pretty weak. =) 
+
+Search bar to search for stuff
+Peoples names and schools/departments
+Post a question and answer - message boards for school
+Uploading docs, images, videos
+  link for videos
+Direct Messages
+
+
+Lessons
+  Standard
+  Objective
+  Work
+  Assessment
+

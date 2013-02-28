@@ -4,7 +4,6 @@ class CreateAssessments < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :user_id
-      t.string :which
       t.text :prompt
       t.string :slug
 

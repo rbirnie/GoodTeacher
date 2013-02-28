@@ -26,12 +26,14 @@
     <% end %>
 
     <% if @vocabulary_lists.any? || current_user == @user %>
-      <h2>Vocabulary Lists</h2>
+      <h2>Terms Lists</h2>
       <%= render "shared/vocabulary_lists" %>
       <%= will_paginate @vocabulary_lists %>
       <% if current_user == @user %>
         <%= link_to "Add a Vocabulary List", new_user_unit_vocabulary_list_path(@user, @unit) %>
       <% end %>
     <% end %>
+    <h2>Documents</h2>
+    <%= link_to "Add a Document" %>
   </div>
-  <%= render 'shared/side_show' %>
+  <%= render 'shared/side_bar' %>

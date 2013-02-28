@@ -21,11 +21,11 @@ class AssessmentsController < ApplicationController
   def new
     @title = "New Assessment"
     @user = User.find(params[:user_id])
-    @unit = @user.units.find(params[:unit_id])
+    @unit = params[:unit_id] ? @user.units.find(params[:unit_id]) : nil
     if current_user.nil? || current_user.id != @user.id
       redirect_to user_assessments_path(@user)
     end
-    @assessment = @unit.assessments.build
+    @assessment = @unit ? @unit.assessments.build : Assessment.new
   end
 
   def create

@@ -3,12 +3,12 @@
 <div class="row">
   <div class="span10">
     <%= render 'shared/stats' %>
-    <legend><%= link_to "Your Courses", user_courses_path(current_user) %></legend>
+    <%# link_to "Your Courses", user_courses_path(current_user) %>
 
-    <% unless current_user.courses.blank? %>
-      <%= render 'shared/courses' %>
-    <% end %>
-    <%= link_to "Create Course", new_user_course_path(current_user) %>
+    <%# unless current_user.courses.blank? %>
+      <%# render 'shared/courses' %>
+    <%# end %>
+    <%# link_to "Create Course", new_user_course_path(current_user) %>
 
     <legend><%= link_to "Unit Gallery", user_units_path(current_user) %></legend>
 
